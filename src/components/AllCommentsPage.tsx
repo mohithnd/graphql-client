@@ -147,7 +147,14 @@ const AllCommentsPage = () => {
 
   const handleCreateComment = (e: React.FormEvent) => {
     e.preventDefault();
-    createComment({ variables: { input: newComment } });
+    createComment({
+      variables: {
+        input: {
+          ...newComment,
+          id: Math.floor(Math.random() * 90000) + 10000,
+        },
+      },
+    });
   };
 
   const handleStartEditing = (comment: any) => {

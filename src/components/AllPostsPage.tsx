@@ -134,7 +134,11 @@ const AllPostsPage = () => {
 
   const handleCreatePost = (e: React.FormEvent) => {
     e.preventDefault();
-    createPost({ variables: { input: newPost } });
+    createPost({
+      variables: {
+        input: { ...newPost, id: Math.floor(Math.random() * 90000) + 10000 },
+      },
+    });
   };
 
   const handleStartEditing = (post: any) => {

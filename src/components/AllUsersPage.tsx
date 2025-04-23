@@ -150,7 +150,11 @@ const AllUsersPage = () => {
 
   const handleCreateUser = (e: React.FormEvent) => {
     e.preventDefault();
-    createUser({ variables: { input: newUser } });
+    createUser({
+      variables: {
+        input: { ...newUser, id: Math.floor(Math.random() * 90000) + 10000 },
+      },
+    });
   };
 
   const handleStartEditing = (user: any) => {
